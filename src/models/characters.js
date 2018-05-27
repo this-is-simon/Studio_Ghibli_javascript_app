@@ -11,8 +11,14 @@ Characters.prototype.getData = function () {
 };
 
 Characters.prototype.handleDataReady = function(characters) {
-  //TODO get character names and publish
-  PubSub.publish('Characters:character-data-ready', characters);
+  //get character names and publish
+  const characterNames = this.getCharacterNames(characters);
+  PubSub.publish('Characters:character-names-ready', characters);
+  console.log('Character Names:', characterNames);
+}
+
+Characters.prototype.getCharacterNames = function (characters) {
+  return characters.map(character => character.name).filter((character, index, characters) => characters.indexOf(character) === index);
 }
 
 module.exports = Characters;

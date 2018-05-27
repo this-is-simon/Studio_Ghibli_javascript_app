@@ -6,9 +6,25 @@ const ListView = function(htmlElement){
 }
 
 ListView.prototype.receiveCharacters = function(){
-  PubSub.subscribe('Characters:character-data-ready', (event) => {
-    console.log('event details:', event.detail);
+  PubSub.subscribe('Characters:character-names-ready', (event) => {
+    this.renderCharacters(event.detail);
   });
+}
+
+ListView.prototype.renderCharacters = function(characterData){
+    characterData.forEach((character, index) => {
+      const characterItem = this.createItem(character, index);
+      this.htmlElement.appendChild(characterItem);
+    });
+}
+
+ListView.prototype.createItem = function (character, id) {
+  const characterItem = document.createElement('li');
+  characterItem.classList.add('character-item');
+  characterItem.textContent = character.name;
+  characterItem.id = id;
+
+  return characterItem;
 }
 
 module.exports = ListView;
