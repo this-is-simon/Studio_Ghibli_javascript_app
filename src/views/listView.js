@@ -24,6 +24,10 @@ ListView.prototype.createItem = function (character, id) {
   characterItem.textContent = character.name;
   characterItem.id = id;
 
+  characterItem.addEventListener('click', (event) => {
+    PubSub.publish('ListView:character-item-clicked', event.target.id);
+  });
+
   return characterItem;
 }
 
