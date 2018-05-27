@@ -6,8 +6,8 @@ const CharacterInfoView = function(characterContainer, character){
   this.character = character;
 }
 
-CharacterInfoView.prototype.receiveClickedCharacter = function(){
-  PubSub.subscribe('ListView:character-item-clicked', (event) => {
+CharacterInfoView.prototype.receiveClickedCharacter = function() {
+  PubSub.subscribe('Characters:character-info-ready', (event) => {
     this.character = event.detail;
     console.log('Clicked Character:', event.detail);
     this.render();
