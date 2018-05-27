@@ -23,36 +23,4 @@ CharacterInfoView.prototype.render = function(){
   characterContainer.appendChild(characterParagraph);
 }
 
-
-// ContinentView.prototype.addName = function () {
-//   const name = document.createElement('h2');
-//   name.classList.add('continent-name');
-//   name.textContent = this.continent.name;
-//   return name;
-// };
-
-// ContinentView.prototype.render = function () {
-//   this.clearContainer();
-//
-//   const name = this.addName();
-//   this.container.appendChild(name);
-//
-//   const countriesContainer = this.createCountriesContainer();
-//   this.renderCountries(countriesContainer);
-//   this.container.appendChild(countriesContainer);
-// };
-//
-// ContinentView.prototype.addName = function () {
-//   const name = document.createElement('h2');
-//   name.classList.add('continent-name');
-//   name.textContent = this.continent.name;
-//   return name;
-// };
-//
-// ContinentView.prototype.createCountriesContainer = function () {
-//   const countriesContainer = document.createElement('div');
-//   countriesContainer.id = 'countries';
-//   return countriesContainer;
-// };
-
 module.exports = CharacterInfoView;
