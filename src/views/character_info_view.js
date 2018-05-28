@@ -18,9 +18,12 @@ CharacterInfoView.prototype.render = function(){
   this.characterContainer.innerHTML = '';
   //TODO render info about each character in div when clicked
   const characterContainer = document.querySelector('#character-info');
-  const characterParagraph = document.createElement('p');
-  characterParagraph.textContent = this.character;
-  characterContainer.appendChild(characterParagraph);
+  const characterParagraph1 = document.createElement('li');
+  const characterParagraph2 = document.createElement('li');
+  characterParagraph1.textContent = this.character.name;
+  characterParagraph2.textContent = this.character.gender;
+  characterContainer.appendChild(characterParagraph1);
+  characterContainer.appendChild(characterParagraph2);
 }
 
 module.exports = CharacterInfoView;

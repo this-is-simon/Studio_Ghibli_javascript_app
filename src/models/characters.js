@@ -18,6 +18,7 @@ Characters.prototype.getData = function () {
 };
 
 Characters.prototype.handleDataReady = function(characters) {
+  this.characters = characters;
   //get character names and publish
   const characterNames = this.getCharacterNames(characters);
   PubSub.publish('Characters:character-names-ready', characters);
